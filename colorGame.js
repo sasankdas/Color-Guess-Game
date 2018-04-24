@@ -5,8 +5,30 @@ var messageDisplay = document.querySelector("#message");
 var colorDisplay = document.getElementById("colorDisplay");
 var h1= document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
-colorDisplay.textContent = pickedColor;
+var easyBtn= document.querySelector("#easyBtn");
+var hardBtn= document.querySelector("#hardBtn");
 
+easyBtn.addEventListener("click", function(){
+    easyBtn.classList.add("selected");
+    hardBtn.classList.remove("selected");
+    colors= generateRandomColors(3);
+    pickedColor= pickColor();
+    colorDisplay.textContent= pickedColor;
+
+    for(var i =0;i<squares.length;i++){
+       if(colors[i]){
+        squares[i].style.backgroundColor = colors[i];
+       } else{
+        squares[i].style.display = "none";
+       }
+    }
+})
+hardBtn.addEventListener("click", function(){
+    hardBtn.classList.add("selected");
+    easyBtn.classList.remove("selected");
+})
+
+colorDisplay.textContent = pickedColor;
 resetButton.addEventListener("click", function(){
     //generate all new colors
 colors = generateRandomColors(6);
@@ -25,11 +47,12 @@ for (var i=0; i<squares.length; i++){
     squares[i].addEventListener("click", function(){
         var clickedColor =this.style.backgroundColor;
         if(clickedColor===pickedColor){
-            messageDisplay.textContent = "Try Again";
+            resetButton.textContent= "PlayAgain??"
             messageDisplay.textContent = "Correct";
             h1.style.backgroundColor = clickedColor;
             changedColors(clickedColor);
         }else{
+            
             this.style.backgroundColor = "black";
             messageDisplay.textContent = "Try Again";
         }
