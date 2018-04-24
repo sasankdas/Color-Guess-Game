@@ -3,6 +3,7 @@ var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var messageDisplay = document.querySelector("#message");
 var colorDisplay = document.getElementById("colorDisplay");
+var h1= document.querySelector("h1");
 colorDisplay.textContent = pickedColor;
 
 for (var i=0; i<squares.length; i++){
@@ -13,6 +14,7 @@ for (var i=0; i<squares.length; i++){
         if(clickedColor===pickedColor){
             messageDisplay.textContent = "Try Again";
             messageDisplay.textContent = "Correct";
+            h1.style.backgroundColor = clickedColor;
             changedColors(clickedColor);
         }else{
             this.style.backgroundColor = "black";
@@ -43,5 +45,5 @@ function randomColor(){
 var r = Math.floor(Math.random()* 256);
 var g = Math.floor(Math.random()* 256);
 var b = Math.floor(Math.random()* 256);
-return "rgb("+r+","+g+","+b+")";
+return "rgb("+r+", "+g+", "+b+")";
 }
