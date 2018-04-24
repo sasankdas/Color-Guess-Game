@@ -8,3 +8,10 @@ body{
     background: purple;
     margin: 1.66%;
 }
+#container{
+    margin: 0 auto;
+    width: 800px;
+}
+h1{
+    color: white;
+}
