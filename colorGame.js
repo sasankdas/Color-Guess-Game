@@ -4,9 +4,22 @@ var pickedColor = pickColor();
 var messageDisplay = document.querySelector("#message");
 var colorDisplay = document.getElementById("colorDisplay");
 var h1= document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
 colorDisplay.textContent = pickedColor;
 
+resetButton.addEventListener("click", function(){
+    //generate all new colors
+colors = generateRandomColors(6);
+    //pick random color afrom array
+pickedColor= pickColor();
+colorDisplay.textContent = pickedColor;
 for (var i=0; i<squares.length; i++){
+        squares[i].style.backgroundColor = colors[i];
+    }
+    h1.style.backgroundColor= "black";
+})
+
+for (var i=0; i<squares.length; i++){   
     squares[i].style.backgroundColor = colors[i]; 
 
     squares[i].addEventListener("click", function(){
@@ -39,8 +52,6 @@ arr.push(randomColor());
 }
 return arr;
 }  
-
-
 function randomColor(){
 var r = Math.floor(Math.random()* 256);
 var g = Math.floor(Math.random()* 256);
