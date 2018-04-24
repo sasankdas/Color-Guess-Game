@@ -52,7 +52,7 @@ colorDisplay.textContent = pickedColor;
 for (var i=0; i<squares.length; i++){
         squares[i].style.backgroundColor = colors[i];
     }
-    h1.style.backgroundColor= "black";
+    h1.style.backgroundColor= "steelblue";
 })
 
 for (var i=0; i<squares.length; i++){   
