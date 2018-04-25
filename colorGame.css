@@ -53,6 +53,7 @@ button{
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: inherit;
+    outline: none;
 }
 button:hover{
     color: white;
